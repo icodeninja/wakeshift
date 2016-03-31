@@ -16,6 +16,10 @@
     "url": "https://github.com/icodeninja/wakeshift/issues"
   },
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+    "angular": "^1.5.3"
   }
 }

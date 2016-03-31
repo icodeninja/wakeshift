@@ -1,1 +1,15 @@
-hey there
+<!DOCTYPE html>
+<html data-ng-app="MainController">
+  <head>
+    <meta charset="utf-8">
+    <title>HomeNet</title>
+    <script src="modules/angular/angular.js"></script>
+    <script src="main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body data-ng-controller="MainController">
+    hey man ! : {{hiThere}}
+    <input data-ng-model="ipaddress" placeholder="127.0.0.0" />
+    {{ipaddress}}
+  </body>
+</html>
