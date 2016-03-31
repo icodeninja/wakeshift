@@ -14,5 +14,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/icodeninja/wakeshift/issues"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
