@@ -1,1 +1,1 @@
-console.log('hehe done');
+console.log('Done installing wakeshift.');
