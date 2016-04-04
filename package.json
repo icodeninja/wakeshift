@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "ping-wrapper": "langpavel/node-ping-wrapper",
     "socket.io": "^1.4.5",
     "wake_on_lan": "0.0.4"
   },
