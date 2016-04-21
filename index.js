@@ -9,11 +9,11 @@ var wol = require('wake_on_lan');
 var wakeshift = require('./lib/wakeshift');
 
 app.use(express.static(__dirname + '/dist'));
-app.use('/modules',express.static(__dirname + '/node_modules'))
+app.use('/modules',express.static(__dirname + '/node_modules'));
 
 app.get('/:mode/',wakeshift.webHandler);
 
-server.listen(port,function(){
+server.listen(port, function(){
   console.log("server started!");
 });
 
