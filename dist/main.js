@@ -1,13 +1,39 @@
-var MainController = angular.module('MainController',[]);
-MainController.controller('MainController',function($scope){
-  console.log('test');
-  $scope.sock = io.connect('http://' + window.location.hostname + ":" + window.location.port);
-  $scope.sock.on('connect', function(data){
-    console.log('inital connect');
-    $scope.sock.emit('message',{hey:'man'});
-    $scope.sock.on('message',function(data){
-      console.log(data);
-    });
+(function(){
+
+  var WakeShift = angular.module('WakeShift',[]);
+
+  var messageReceived = function($scope, message){
+    console.log(message);
+    switch(message.action){
+      case 'ping_update':{
+        $scope.pings[message.ip] = message.latency + 'ms';
+
+        $scope.$apply();
+      }break;
+      case 'ping_failed':{
+        $scope.pings[message.ip] = '-';
+      }break;
+    }
+  };
+
+  var socketConnected = function($scope, data){
+    $scope.sock.off('message');
+    console.log('connection established');
+    $scope.sock.emit('message', {'action':'confirm_connection'});
+    $scope.sock.on('message', messageReceived.bind(this,$scope));
+  };
+
+  WakeShift.controller('MainController', function($scope){
+    $scope.sock = io.connect('http://' + window.location.hostname + ":" + window.location.port);
+
+    $scope.pings = {};
+
+    $scope.$watch('pings',function(n,o){
+        console.log('scope ping changed');
+        $scope.showPingTable = Object.keys(n).length > 0;
+    },true);
+
+    $scope.sock.on('connect', socketConnected.bind(this,$scope));
   });
-  $scope.hiThere = 'hey';
-});
+
+}());
