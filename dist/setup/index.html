@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html data-ng-app="Setup">
+<head>
+	<meta charset="utf-8">
+	<title>Setup</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/css/setup.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="https://i.icomoon.io/public/temp/f7d1e6b005/UntitledProject/style.css">
+	<script src="/modules/angular.min.js" charset="utf-8"></script>
+	<script src="/modules/angular-resource.min.js" charset="utf-8"></script>
+	<script src="/modules/angular-route.min.js" charset="utf-8"></script>
+	<script src="/modules/angular-cookies.min.js" charset="utf-8"></script>
+	<script charset="utf-8" src="setup.js"></script>
+</head>
+<body>
+	<nav ng-controller="Navigation">
+		<img class="logo" src="/img/logo.svg" />
+		<h1>{{title}}</h1>
+		<control-icon data-view="log in" data-icon="key2" ng-show="authed" />
+	</nav>
+	<div class="app-controller">
+		<div ng-view></div>
+	</div>
+	<script type="text/ng-template" id="Loading.htm">
+		<section>
+			<h2>First-Time Setup</h2>
+		</section>
+		<section>
+			<article>
+				Welcome to Wakeshift!<br />
+				<br />
+				This guide will walk you through:<br />
+				<br />
+				<ul>
+					<li>Creating the default Admin User</li>
+					<li>Selecting your default Network Interface</li>
+				</ul>
+				<br />
+				* You can change all of this later<br />
+			</article>
+			<button ng-click="continue()">Continue</button>
+		</section>
+	</script>
+	<script type="text/ng-template" id="Interfaces.htm">
+		<section>
+			<h2>Available Interfaces</h2>
+		</section>
+		<section ng-show="hasInterfaces">
+			<h3>Choose Interfaces to Scan</h3>
+			<div class="nw-interface" ng-repeat="(k,v) in interfaces">
+				Device: {{k}}, Address: {{v.address}}, MAC: {{v.mac}}
+			</div>
+		</section>
+		<section ng-show="!hasInterfaces">
+			Retrieving System Interfaces...
+		</section>
+	</script>
+	<script type="text/ng-template" id="User.htm">
+		<section>
+			<h2>Admin User Information</h2>
+		</section>
+		<form action="/setup/admin" method="POST">
+			<section class="text-center">
+				<table>
+					<tr>
+						<td>Username</td>
+						<td><text-input data-name="user" data-type="text"></text-input></td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><text-input data-name="pass" data-type="password"></text-input></td>
+					</tr>
+					<tr>
+						<td>Confirm Password</td>
+						<td><text-input data-name="pass2" data-type="password"></text-input></td>
+					</tr>
+				</table>
+			</section>
+			<button class="submit next-button">Continue</button>
+		</form>
+	</script>
+</body>
+</html>

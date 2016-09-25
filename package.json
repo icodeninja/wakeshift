@@ -17,13 +17,15 @@
     "url": "https://github.com/icodeninja/wakeshift/issues"
   },
   "dependencies": {
+    "angular": "^1.5.3",
+    "angular-cookies": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
-    "ping-wrapper": "icodeninja/node-ping-wrapper#win32-hotfix",
+    "ping-wrapper": "icodeninja/node-ping-wrapper#master",
     "require-new": "^1.1.0",
     "socket.io": "^1.4.5",
     "wake_on_lan": "0.0.4"
-  },
-  "devDependencies": {
-    "angular": "^1.5.3"
   }
 }

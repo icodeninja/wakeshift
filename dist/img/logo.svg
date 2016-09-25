@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512"
+     viewBox="0 -4 105 105">
+<g id="logo">
+  <path stroke-width="8" stroke="#444" fill="none" d="M10 60 A 45 45, 0, 1, 0, 30 10" />
+  <path stroke-width="4" stroke="#eebb00" fill="#eebb00"
+    d="M20 10
+       L5  35
+       L35 70
+       L55 55
+       L70 70
+       L85 40
+       L67 50
+       L55 35
+       L37 50 Z
+       "/>
+</g>
+</svg>

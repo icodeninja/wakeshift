@@ -17,10 +17,10 @@
   };
 
   var socketConnected = function($scope, data){
-    $scope.sock.off('message');
+    $scope.sock.off('_');
     console.log('connection established');
-    $scope.sock.emit('message', {'action':'confirm_connection'});
-    $scope.sock.on('message', messageReceived.bind(this,$scope));
+    $scope.sock.emit('_', {'action':'confirm_connection'});
+    $scope.sock.on('_', messageReceived.bind(this,$scope));
   };
 
   WakeShift.controller('MainController', function($scope){

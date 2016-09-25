@@ -1,0 +1,33 @@
+#!/bin/sh
+
+### BEGIN INIT INTO
+# Provides:             wakeshift
+# Required-Start:       $remote_fs $syslog
+# Required-Stop:        $remote_fs $syslog
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Start daemon at boot time
+# Description:          Enable service provided by daemon
+### END INIT INFO
+
+DESC="Wakeshift Server"
+
+case "$1" in
+        start)
+                echo -n "Starting $DESC..."
+                ;;
+        stop)
+                echo -n "Stopping $DESC..."
+                ;;
+        restart)
+                echo -n "Restarting $DESC..."
+                ;;
+        force-reload)
+                echo -n "invalid command for $DESC, valid commands are:\nstart\nstop\nrestart\nstatus\n"
+                ;;
+        status)
+                echo -n "The hell if I know lol"
+                ;;
+esac
+echo -n "\n";
+exit 0
